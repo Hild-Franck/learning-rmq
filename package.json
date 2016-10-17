@@ -1,0 +1,36 @@
+{
+  "name": "phaser-basic-boilerplate",
+  "version": "0.0.1",
+  "description": "An useful phaser boilerplate",
+  "main": "main.js",
+  "scripts": {
+    "test": "ava --verbose",
+    "dev": "node ./node_modules/karma/bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hild-Franck/phaser-basic-boilerplate.git"
+  },
+  "author": "Hild Franck <franck.hild@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hild-Franck/phaser-basic-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Hild-Franck/phaser-basic-boilerplate#readme",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0"
+  },
+  "dependencies": {
+    "amqplib": "^0.4.2"
+  },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ]
+  }
+}
