@@ -60,7 +60,6 @@ ava.cb('process message', t => {
 	const queue = 'promsg'
 	assertQueue(channel, queue)
 	processMessage(channel, queue).with(msg => {
-		console.log(msg.content.toString())
 		t.pass()
 		t.end()
 	})

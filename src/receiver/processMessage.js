@@ -1,5 +1,5 @@
 /**
- * @example processMessage(ch, q).with(msg => console.log(msg)).then(/*...*/)
+ * @example processMessage(ch, q).with(msg => console.log(msg)).then(/.../)
  **/
 const processMessage = (channel, queue) => {
 // On définit un handler, qui traitera le message (une callback
