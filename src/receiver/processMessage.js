@@ -11,17 +11,16 @@ const processMessage = (channel, queue) => {
 		with: fn => {
 // Ici, on définit le handler custom
 			handler = fn
-// On return un Promise.resolve() pour pouvoir chain
-// avec un then()
-			return Promise.resolve()
-		}
-	}
 // Lorsqu'un reçoit un message de la queue,
 // on le traite avec le handler
-	channel.consume(queue, msg => {
-		handler(msg)
-	}, { noAck: true })
-
+			channel.consume(queue, msg => {
+				handler(msg)
+			}, { noAck: true })
+// On return un Promise.resolve() pour pouvoir chain
+// avec un then()
+			return Promise.resolve(channel)
+		}
+	}
 	return ret
 }
 

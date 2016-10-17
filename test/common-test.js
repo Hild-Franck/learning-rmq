@@ -62,7 +62,8 @@ ava.cb('process message', t => {
 	processMessage(channel, queue).with(msg => {
 		t.pass()
 		t.end()
+	}).then(ch => {
+		ch.sendToQueue(queue, new Buffer('coucou'))
 	})
-	setTimeout(() => {channel.sendToQueue(queue, new Buffer('coucou'))}, 20)
 })
 
