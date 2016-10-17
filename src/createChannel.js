@@ -1,6 +1,7 @@
 let channelOpened = false
 
 const createChannel = conn => {
+// On vérifie que le channel n'a pas déjà été ouvert
 	if(!channelOpened) {
 		return conn.createChannel().then(ch => {
 			channelOpened = true
