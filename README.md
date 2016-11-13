@@ -19,6 +19,9 @@ Le code exprimant ce principe est éclaté en plusieurs modules, sont basés sur
 >- **createChannel:** permet de créer un canal de communication avec le serveur ; la connection seule ne suffit pas pour communiquer. Expose un objet *channel*
 >- **assertQueue:** permet de créer et se connecter une queue sur le serveur si elle n'existe pas, ou de s'y connecter simplement si elle existe déjà. Expose la *queue* créée / rejointe
 >- **joinQueue:** permet de rejoindre une queue seulement si elle existe déjà. De même, expose la *queue* rejointe.
+>- **assertAppQueue:** créé la queue propre à l'instance actuelle du service. Expose la queue, générée aléatoirement par le serveur RabbitMQ
+>- **assertServiceExchange:** rejoint l'exchange commun des instances du même service. Tout les messages envoyés a cet exchange seront reçus par toutes les instances du même service.
+>- **assertServiceQueue:** rejoint la queue commune des instances du même service. Tout les messages envoyés a cette queue seront reçus par une instances du service par load balancing
 
 Ces modules sont essentiels à la fois pour le sender ET le receiver. Mais comme dit plus haut, chacun a un rôle différent, il faut donc préparer des modules spécifiques à chacun.
 
@@ -26,6 +29,7 @@ Ces modules sont essentiels à la fois pour le sender ET le receiver. Mais comme
 On va donc s'atteler à lui faire écouter les queues dans lesquelles on va envoyer des messages:
 >- **getMessageOnce:** permet de ne recevoir qu'un message en provenance de la queue, puis de la fermer.
 >- **processMessage:** permet d'écouter une queue et d'y appliquer un handler que l'on aura défini.
+>- **workIn:** permet de définir un handler dans la méthode with() exposée pour gérer les messages de la queue définie en paramètre.
 
 ###Le sender
 Pour le sender, on va utiliser l'API de *amqplib* sendToQueue, et ne pas écrire une sur-couche
