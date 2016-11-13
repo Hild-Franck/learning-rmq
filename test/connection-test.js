@@ -11,6 +11,7 @@ ava('connection', t => {
 		t.end()
 	}).catch(err => {
 		t.fail()
+		t.end()
 	})
 })
 

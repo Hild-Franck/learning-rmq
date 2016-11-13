@@ -34,7 +34,6 @@ ava.cb('queue creation', t => {
 
 ava.cb('get a message once', t => {
 	const queue = 'prout'
-	channel.on('error', console.log)
 	assertQueue(channel, queue)
 	getMessageOnce(channel, queue).then(msg => {
 		t.truthy(msg)
